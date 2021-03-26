@@ -1,0 +1,151 @@
+.search_area {
+  width: auto;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+#search_text {
+  background: #fff;
+  border: 1px solid #dfe1e5;
+  box-shadow: none;
+  border-radius: 24px;
+  width: 700px;
+  height: 44px;
+  margin-top: 180px;
+  margin-bottom: 16px;
+  padding: 0 20px;
+  font-size: 20px;
+  opacity: 0.9;
+}
+
+.search_wrapper{
+  background-image: url(../images/book.jpg);
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  min-height: 50vh;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+#search_text:hover {
+  background-color: #fff;
+  box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
+  border-color: rgba(223, 225, 229, 0);
+}
+
+#search_text:focus {
+  outline:none;
+  background-color: #fff;
+  box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
+  border-color: rgba(223, 225, 229, 0);
+}
+
+#search_button {
+  display: block;
+  background-color: #f8f9fa;
+  border: 1px solid #f8f9fa;
+  border-radius: 4px;
+  color: #3c4043;
+  font-family: arial,
+  sans-serif;
+  font-size: 14px;
+  margin: 0 auto 84px;
+  padding: 0 16px;
+  line-height: 27px;
+  height: 36px;
+  min-width: 54px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+#loading{
+  width: 100%;
+  margin: 0 auto;
+}
+
+#logo {
+  max-width: 394px;
+  margin: 0 auto;
+}
+
+.logo_image {
+  width: 100%;
+}
+
+.loading_icon {
+  display: block;
+  margin: 0 auto;
+}
+
+.result_wrapeer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#result{
+  max-width: 480px;
+  display: flex;
+  margin-bottom: 30px;
+}
+
+img{
+  width: 250px;
+  height: auto;
+}
+
+.result_title{
+  font-size: 16px;
+}
+
+.result_text{
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.result_author{
+  text-decoration: none;
+  color: #000;
+  margin-bottom: 140px;
+  transition: 0.4s;
+}
+
+.result_author:hover{
+  color: royalblue;
+}
+
+.btn{
+  width:200px;
+    font-size:px;
+    font-weight:bold;
+    text-decoration:none;
+    display:block;
+    text-align:center;
+    padding:8px 0 10px;
+    color:#fff;
+    border:1px solid #333;
+    border-radius: 25px;
+    margin-bottom: 20px;
+}
+
+.amazon{
+  background-color:#FF9900;
+  transition: 0.3s;
+}
+.amazon:hover{
+  background-color: #fff;
+  color: #FF9900;
+}
+
+.rakuten{
+  background-color: #bf0000;
+  transition: 0.3s;
+}
+
+.rakuten:hover{
+  background-color:#fff ;
+  color: #bf0000;
+}

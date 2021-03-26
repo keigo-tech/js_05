@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Qiita API</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="search_area">
+    <div class="search_wrapper">
+      <input type="text" id="search_text" placeholder="書籍名を入力">
+      <button id="search_button">検索</button>
+    </div>
+
+    <div class="result_wrapeer">
+      <div id="loading" style="display: none;"><img src="images/circle.gif" class="loading_icon"></div>
+
+    </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+  // 検索処理
+  function search(){
+    let searchText = $("#search_text").val();
+    $("#loading").css("display","block");
+    let str = "";
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=search+${searchText}`)
+    .then(function(response){
+      let data = response.data.items;
+      // alert(data[1].volumeInfo.imageLinks.thumbnail);
+      if(data=== 0){
+        console.log("結果なし");
+        $("#result").html("結果なし");
+        $("#loading").css("display","none");
+      }else{
+      for(let i =0; i<10; i++){
+        str += `<div id="result"><div class="result_image"><img src="${data[i].volumeInfo.imageLinks.thumbnail}"></div><div class="result_text"><p class="result_title"> ${data[i].volumeInfo.title}</p><a class="result_author" href="https://www.amazon.co.jp/s?k=${data[i].volumeInfo.authors}&__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&ref=nb_sb_noss_2" >${data[i].volumeInfo.authors}</a><a target="_blank" rel="noopener noreferrer" class="amazon btn" href="https://www.amazon.co.jp/s?k=${data[i].volumeInfo.title}&__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&ref=nb_sb_noss_2" >Amazonで検索</a><a target="_blank" rel="noopener noreferrer" class="rakuten btn" href="https://books.rakuten.co.jp/search?sitem=${data[i].volumeInfo.title}&g=001&l-id=pc-search-box" >楽天で検索</a></div></div>`;
+      }
+      $("#loading").css("display","none");
+      $(".result_wrapeer").html(str);
+      }})
+    .catch(function(){
+      console.log("NG");
+    });
+  }
+
+  $("#search_button").on("click", search);
+
+  addEventListener("keydown",function(e){
+    if (e.keyCode === 13) {
+      search();
+    }
+  })
+
+</script>
+</body>
+</html>
